@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>How to Lock a Folder on iPhone in iOS 18 | iPhoneFolderSecurity</title>
+<meta content="A complete guide to locking folders on your iPhone. Learn native iOS 18 workarounds and discover the most secure third-party vault methods for complete privacy." name="description"/>
+<!-- Replace YOUR-DOMAIN.com before launch -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+    --color-hero-bg: #050D1F;
+    --color-primary-accent: #00D4FF;
+    --color-secondary-accent: #6E56CF;
+    --color-glass-surface: rgba(255,255,255,0.06);
+    --color-glass-border: rgba(0,212,255,0.2);
+    --color-content-bg: #0A1628;
+    --color-light-bg: #EEF4FF;
+    --color-body-text: #E8F4FD;
+    --color-body-text-light: #1A2B3C;
+    --color-heading-text: #FFFFFF;
+    --color-border: rgba(0,212,255,0.18);
+    --color-meta-text: rgba(232,244,253,0.68);
+    --color-saas-bg: #050D1F;
+    --color-saas-text: #E8F4FD;
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --max-reading-width: 780px;
+    --max-wide-width: 1180px;
+    --section-padding-v: 86px;
+    --radius-card: 22px;
+    --shadow-card: 0 22px 70px rgba(0,0,0,0.35);
+    --transition-speed: 0.28s;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--font-body);
+    background:
+        radial-gradient(circle at top left, rgba(0,212,255,0.12), transparent 34rem),
+        radial-gradient(circle at 85% 10%, rgba(110,86,207,0.18), transparent 30rem),
+        var(--color-content-bg);
+    color: var(--color-body-text);
+    line-height: 1.72;
+    font-size: 16.5px;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(to bottom, black, transparent 78%);
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--color-heading-text);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+}
+h1 {
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    max-width: 760px;
+}
+h2 {
+    font-size: clamp(32px, 4vw, 46px);
+    font-weight: 700;
+    margin: 3rem 0 1.35rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.75rem;
+}
+h3 { font-size: 1.35rem; font-weight: 700; margin: 2rem 0 1rem; }
+h4 { font-size: 1.1rem; font-weight: 700; margin: 1.35rem 0 0.75rem; }
+p { margin-bottom: 1.5rem; color: rgba(232,244,253,0.86); }
+a {
+    color: var(--color-primary-accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-speed), text-shadow var(--transition-speed), background var(--transition-speed), border var(--transition-speed), transform var(--transition-speed);
+}
+a:hover {
+    color: #fff;
+    text-shadow: 0 0 18px rgba(0,212,255,0.62);
+}
+ul, ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+li { margin-bottom: 0.6rem; color: rgba(232,244,253,0.86); }
+
+.container-reading { max-width: var(--max-reading-width); margin: 0 auto; padding: 0 24px; }
+.container-wide { max-width: var(--max-wide-width); margin: 0 auto; padding: 0 24px; }
+.section-wrap {
+    padding: var(--section-padding-v) 0;
+    position: relative;
+}
+.section-wrap:not(.bg-alt):not(.bg-tint) {
+    background:
+        radial-gradient(circle at 12% 15%, rgba(0,212,255,0.05), transparent 24rem),
+        var(--color-content-bg);
+}
+.bg-alt {
+    background: linear-gradient(180deg, rgba(238,244,255,0.97), #dfeaff);
+    color: var(--color-body-text-light);
+}
+.bg-alt h1, .bg-alt h2, .bg-alt h3, .bg-alt h4,
+.bg-tint h1, .bg-tint h2, .bg-tint h3, .bg-tint h4 {
+    color: #071226;
+}
+.bg-alt p, .bg-alt li, .bg-tint p, .bg-tint li { color: rgba(26,43,60,0.82); }
+.bg-alt a:hover, .bg-tint a:hover { color: #071226; }
+.bg-tint {
+    background:
+        radial-gradient(circle at 100% 0%, rgba(0,212,255,0.18), transparent 26rem),
+        var(--color-light-bg);
+    color: var(--color-body-text-light);
+}
+
+.section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    color: var(--color-primary-accent);
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.22);
+    padding: 8px 12px;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.section-badge::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-primary-accent);
+    box-shadow: 0 0 16px rgba(0,212,255,0.9);
+}
+.section-badge.visible { opacity: 1; transform: translateY(0); }
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+    background: rgba(5,13,31,0.72);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(0,212,255,0.12);
+    z-index: 100;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    transition: background var(--transition-speed), box-shadow var(--transition-speed), border-color var(--transition-speed);
+}
+header.scrolled {
+    background: rgba(5,13,31,0.92);
+    border-color: rgba(0,212,255,0.28);
+    box-shadow: 0 18px 38px rgba(0,0,0,0.32);
+}
+.header-inner {
+    width: 100%;
+    max-width: var(--max-wide-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #fff;
+}
+.brand-art {
+    display: block;
+    height: 42px;
+    width: 220px;
+    max-width: 100%;
+    filter: drop-shadow(0 0 22px rgba(0,212,255,0.18));
+}
+.logo { gap: 0; }
+.footer-brand { gap: 0; }
+.footer-brand .brand-art {
+    width: 248px;
+    height: 48px;
+}
+.nav-links { display: flex; gap: 26px; align-items: center; }
+.nav-links a {
+    font-size: 0.9rem;
+    color: rgba(232,244,253,0.72);
+    font-weight: 600;
+}
+.nav-links a:hover { color: var(--color-primary-accent); }
+.nav-cta {
+    border: 1.5px solid rgba(0,212,255,0.44);
+    background: rgba(0,212,255,0.06);
+    padding: 10px 16px;
+    border-radius: 999px;
+    color: var(--color-primary-accent) !important;
+}
+.nav-cta:hover {
+    background: rgba(0,212,255,0.16);
+    transform: translateY(-1px);
+}
+.mobile-menu-btn {
+    display: none;
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    border: 1px solid rgba(0,212,255,0.24);
+    border-radius: 10px;
+    padding: 6px 10px;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+/* Hero */
+.hero {
+    position: relative;
+    min-height: calc(100vh - 72px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0,212,255,0.18), transparent 26rem),
+        radial-gradient(circle at 82% 12%, rgba(110,86,207,0.32), transparent 30rem),
+        radial-gradient(circle at 60% 86%, rgba(0,212,255,0.09), transparent 28rem),
+        var(--color-hero-bg);
+    padding: 78px 0 70px;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(0,212,255,0.18) 1px, transparent 1px);
+    background-size: 26px 26px;
+    opacity: 0.35;
+    mask-image: linear-gradient(to bottom, black 10%, transparent 100%);
+}
+#hero-particles {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.65;
+}
+.hero-shell {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.04fr) minmax(330px, 0.72fr);
+    gap: 54px;
+    align-items: center;
+}
+.hero-content { max-width: 760px; }
+.text-glow {
+    color: var(--color-primary-accent);
+    text-shadow: 0 0 22px rgba(0,212,255,0.72), 0 0 48px rgba(0,212,255,0.24);
+}
+.breadcrumb {
+    display: inline-flex;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: rgba(232,244,253,0.68);
+    margin-bottom: 1.4rem;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(0,212,255,0.18);
+    background: rgba(255,255,255,0.04);
+}
+.hero-meta {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: rgba(232,244,253,0.65);
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin: 0 0 1.55rem;
+    flex-wrap: wrap;
+}
+.hero-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(120px, 1fr));
+    gap: 12px;
+    margin: 1.5rem 0 1.8rem;
+}
+.hero-stat {
+    background: var(--color-glass-surface);
+    border: 1px solid var(--color-glass-border);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 18px 38px rgba(0,0,0,0.22);
+    backdrop-filter: blur(16px);
+    border-radius: 18px;
+    padding: 16px 14px;
+}
+.hero-stat strong {
+    display: block;
+    font-family: var(--font-mono);
+    color: #fff;
+    font-size: 1.28rem;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+.hero-stat span {
+    font-size: 0.78rem;
+    color: rgba(232,244,253,0.62);
+}
+.quick-answer,
+.widget-box,
+.toc-card,
+.masonry-card,
+.accordion-item,
+.pricing-row,
+.table-wrap,
+.image-shell,
+.security-layer-stack,
+.hero-product-panel {
+    background: var(--color-glass-surface);
+    border: 1px solid var(--color-glass-border);
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(20px);
+}
+.quick-answer {
+    border-left: 4px solid var(--color-primary-accent);
+    padding: 24px;
+    border-radius: 0 20px 20px 0;
+    margin-bottom: 2rem;
+}
+.quick-answer-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-primary-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 8px;
+    display: block;
+}
+.widget-box {
+    border-radius: var(--radius-card);
+    padding: 24px;
+    margin: 2rem 0;
+}
+.widget-title {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    border:none;
+    padding:0;
+}
+.btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 1rem; }
+.btn-filter {
+    background: rgba(255,255,255,0.06);
+    color: rgba(232,244,253,0.86);
+    border: 1px solid rgba(0,212,255,0.18);
+    padding: 10px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: 600;
+    transition: transform var(--transition-speed), background var(--transition-speed), box-shadow var(--transition-speed), border-color var(--transition-speed);
+}
+.btn-filter.active, .btn-filter:hover {
+    background: rgba(0,212,255,0.14);
+    border-color: rgba(0,212,255,0.52);
+    color: #fff;
+    box-shadow: 0 0 0 4px rgba(0,212,255,0.08), 0 0 24px rgba(0,212,255,0.18);
+    transform: translateY(-1px);
+}
+select, input[type="text"] {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid rgba(0,212,255,0.22);
+    color: #fff;
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+select option { color: #071226; }
+
+.hero-product-panel {
+    position: relative;
+    border-radius: 30px;
+    padding: 20px;
+    transform: perspective(950px) rotateY(-7deg) skewY(-2deg);
+    overflow: hidden;
+}
+.hero-product-panel::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    background: radial-gradient(circle at top right, rgba(0,212,255,0.28), transparent 45%),
+                radial-gradient(circle at bottom left, rgba(110,86,207,0.25), transparent 44%);
+    pointer-events: none;
+}
+.product-panel-inner { position: relative; z-index: 1; }
+.panel-bar {
+    display: flex;
+    gap: 7px;
+    margin-bottom: 16px;
+}
+.panel-bar span {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: rgba(232,244,253,0.34);
+}
+.hero-product-image,
+.inline-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: contain;
+    border-radius: 18px;
+}
+.hero-product-image {
+    background: rgba(5,13,31,0.5);
+    border: 1px solid rgba(0,212,255,0.18);
+    padding: 8px;
+}
+.mini-terminal {
+    margin-top: 16px;
+    padding: 14px;
+    border-radius: 16px;
+    background: rgba(5,13,31,0.68);
+    border: 1px solid rgba(0,212,255,0.18);
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: rgba(232,244,253,0.78);
+}
+.mini-terminal span { color: var(--color-primary-accent); }
+
+/* TOC */
+.toc-card {
+    padding: 28px;
+    border-radius: var(--radius-card);
+    margin-bottom: 3rem;
+    background: rgba(255,255,255,0.76);
+    border-color: rgba(110,86,207,0.18);
+}
+.toc-card h3 {
+    color: #071226;
+    margin-top: 0;
+    font-size: 1.15rem;
+}
+.toc-list { list-style: none; padding: 0; margin-bottom: 0; }
+.toc-list li { margin-bottom: 10px; color: rgba(26,43,60,0.82); }
+.toc-list a { font-weight: 700; color: #14243a; }
+.toc-list a:hover { color: #6E56CF; text-shadow: none; }
+
+/* Images */
+.image-shell {
+    border-radius: 24px;
+    padding: 14px;
+    margin: 28px 0;
+    overflow: hidden;
+}
+.bg-alt .image-shell,
+.bg-tint .image-shell {
+    background: rgba(255,255,255,0.78);
+    border-color: rgba(110,86,207,0.18);
+}
+.image-shell img,
+.card-image img,
+.pricing-image img {
+    max-width: 100%;
+    object-fit: contain;
+}
+.image-shell img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 460px;
+    border-radius: 16px;
+}
+.dual-image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin: 28px 0;
+}
+.dual-image-grid .image-shell { margin: 0; }
+
+/* Security layer stack */
+.tech-showcase {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 28px;
+    align-items: center;
+    margin-top: 22px;
+}
+.security-layer-stack {
+    position: relative;
+    min-height: 300px;
+    border-radius: 26px;
+    padding: 32px 18px;
+    overflow: hidden;
+}
+.security-layer-stack::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0,212,255,0.22), transparent 62%);
+}
+.layer-card {
+    position: absolute;
+    left: 34px;
+    right: 34px;
+    height: 68px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.13), rgba(255,255,255,0.035));
+    border: 1px solid rgba(0,212,255,0.28);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+    transform: perspective(600px) rotateX(54deg) skewX(-10deg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px;
+    font-family: var(--font-mono);
+    color: #fff;
+    font-size: 0.8rem;
+}
+.layer-card::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: var(--color-primary-accent);
+    box-shadow: 0 0 18px rgba(0,212,255,0.9);
+}
+.layer-card:nth-child(1) { top: 48px; transform: perspective(600px) rotateX(54deg) skewX(-10deg) translateY(-10px); }
+.layer-card:nth-child(2) { top: 98px; transform: perspective(600px) rotateX(54deg) skewX(-10deg) translateY(0); }
+.layer-card:nth-child(3) { top: 148px; transform: perspective(600px) rotateX(54deg) skewX(-10deg) translateY(10px); }
+.layer-card:nth-child(4) { top: 198px; transform: perspective(600px) rotateX(54deg) skewX(-10deg) translateY(20px); }
+
+/* SaaS / Recommendation */
+.saas-band {
+    background:
+        radial-gradient(circle at 15% 20%, rgba(0,212,255,0.17), transparent 26rem),
+        radial-gradient(circle at 85% 20%, rgba(110,86,207,0.28), transparent 28rem),
+        var(--color-saas-bg);
+    color: var(--color-saas-text);
+    padding: 92px 0;
+}
+.saas-band h2 { color: #fff; border: none; margin-top: 0; }
+.saas-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 0.8fr);
+    gap: 42px;
+    align-items: center;
+}
+.saas-content p { color: rgba(232,244,253,0.76); font-size: 1.05rem; }
+.saas-chips { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 2rem; }
+.saas-chip {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(0,212,255,0.18);
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+.saas-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-primary-accent);
+    color: #03101d !important;
+    padding: 14px 24px;
+    border-radius: 999px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 12px 34px rgba(0,212,255,0.24);
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    color: #03101d !important;
+    text-shadow: none;
+    box-shadow: 0 18px 44px rgba(0,212,255,0.38);
+}
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(0,212,255,0.36);
+    color: #fff !important;
+    padding: 14px 24px;
+    border-radius: 999px;
+    font-weight: 700;
+}
+.btn-outline:hover { background: rgba(0,212,255,0.14); transform: translateY(-2px); }
+.saas-mockup {
+    background: var(--color-glass-surface);
+    border: 1px solid var(--color-glass-border);
+    border-radius: 26px;
+    padding: 22px;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.45);
+    backdrop-filter: blur(22px);
+}
+.saas-mockup h3 { color:#fff; margin-bottom: 12px; border:none; }
+.saas-mockup p { font-size: 0.92rem; color: rgba(232,244,253,0.66); }
+
+/* Features grid */
+.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+    gap: 24px;
+}
+.masonry-card {
+    position: relative;
+    border-radius: var(--radius-card);
+    padding: 22px;
+    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), border-color var(--transition-speed);
+}
+.masonry-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 18px;
+    right: 18px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--color-primary-accent), var(--color-secondary-accent));
+}
+.masonry-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0,212,255,0.58);
+    box-shadow: 0 0 0 1px rgba(0,212,255,0.22), 0 26px 70px rgba(0,212,255,0.14);
+}
+.masonry-card h4 { color: #fff; margin-top: 1rem; }
+.masonry-card p { color: rgba(232,244,253,0.72); font-size: 0.95rem; }
+.card-image {
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid rgba(0,212,255,0.16);
+    background: rgba(5,13,31,0.45);
+    overflow: hidden;
+    padding: 8px;
+}
+.card-image img {
+    display: block;
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+/* Comparison table */
+.table-wrap {
+    overflow-x: auto;
+    margin: 2rem 0;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(5,13,31,0.98), rgba(10,22,40,0.96));
+    border: 1px solid rgba(0,212,255,0.22);
+    box-shadow: 0 22px 48px rgba(3,10,22,0.28);
+}
+table { width: 100%; border-collapse: collapse; min-width: 700px; }
+th, td {
+    padding: 18px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0,212,255,0.14);
+    color: #EAF6FF;
+}
+th {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    background: linear-gradient(180deg, rgba(0,212,255,0.22), rgba(0,212,255,0.12));
+    color: #FFFFFF;
+}
+th:last-child {
+    background: linear-gradient(135deg, rgba(0,212,255,0.28), rgba(110,86,207,0.42));
+}
+tbody tr { background: rgba(9,21,40,0.94); }
+tbody tr:nth-child(even) { background: rgba(14,29,53,0.98); }
+tbody td { font-weight: 500; }
+td a { color: #83EAFF; }
+.highlight-row {
+    background: linear-gradient(90deg, rgba(0,212,255,0.22), rgba(110,86,207,0.18)) !important;
+    border-left: 4px solid var(--color-primary-accent);
+}
+.highlight-row td { font-weight: 700; color: #fff; }
+
+/* Step connector */
+.steps-shell {
+    position: relative;
+    margin: 28px 0;
+}
+.step-connector {
+    position: absolute;
+    left: 21px;
+    top: 24px;
+    width: 42px;
+    height: calc(100% - 48px);
+    overflow: visible;
+    pointer-events: none;
+}
+.step-connector path {
+    stroke: var(--color-primary-accent);
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    filter: drop-shadow(0 0 8px rgba(0,212,255,0.55));
+}
+.steps-shell.line-drawn .step-connector path {
+    animation: drawLine 1.4s ease forwards;
+}
+@keyframes drawLine { to { stroke-dashoffset: 0; } }
+.process-steps {
+    list-style: none;
+    padding-left: 0;
+    counter-reset: step;
+}
+.process-steps li {
+    position: relative;
+    padding: 0 0 20px 76px;
+    counter-increment: step;
+}
+.process-steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--color-primary-accent);
+    color: #03101d;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    box-shadow: 0 0 28px rgba(0,212,255,0.34);
+}
+
+/* Pricing */
+.pricing-row {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--radius-card);
+    padding: 26px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+.pricing-row.highlight {
+    transform: scale(1.02);
+    border-color: rgba(0,212,255,0.55);
+}
+.pricing-row.highlight::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--color-primary-accent), var(--color-secondary-accent));
+}
+.pricing-details h4 { margin: 0 0 6px 0; font-size: 1.25rem; color: #fff; }
+.pricing-details p { margin: 0; font-size: 0.92rem; color: rgba(232,244,253,0.66); }
+.pricing-price {
+    font-family: var(--font-mono);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-primary-accent);
+    text-align: right;
+}
+.pricing-image {
+    max-width: 280px;
+    margin: 30px auto 0;
+    padding: 12px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(0,212,255,0.18);
+}
+.pricing-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+}
+
+/* FAQ */
+.accordion-item {
+    border-radius: 16px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+.accordion-header {
+    width: 100%;
+    text-align: left;
+    padding: 18px 24px;
+    color: #fff;
+    background: transparent;
+    border: none;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.03rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.accordion-header span {
+    font-family: var(--font-mono);
+    color: var(--color-primary-accent);
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-speed) ease-out;
+    padding: 0 24px;
+}
+.accordion-content p { margin: 16px 0 20px; }
+.accordion-item.active .accordion-content {
+    max-height: 520px;
+}
+.accordion-item.active {
+    border-left: 4px solid var(--color-primary-accent);
+    box-shadow: 0 0 34px rgba(0,212,255,0.12);
+}
+.accordion-item.active .accordion-header {
+    background: rgba(0,212,255,0.09);
+}
+
+/* Ticker */
+.ticker-wrap {
+    overflow: hidden;
+    background: #050D1F;
+    border-top: 1px solid rgba(0,212,255,0.16);
+    border-bottom: 1px solid rgba(0,212,255,0.16);
+    padding: 34px 0;
+}
+.ticker { display: flex; width: max-content; animation: ticker 40s linear infinite; }
+.ticker:hover { animation-play-state: paused; }
+.ticker-card {
+    width: 350px;
+    margin-right: 24px;
+    padding: 24px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 18px;
+    border: 1px solid rgba(0,212,255,0.18);
+}
+.ticker-quote { font-style: italic; margin-bottom: 12px; font-size: 0.95rem; color: rgba(232,244,253,0.78); }
+.ticker-author { font-weight: 700; font-size: 0.85rem; color: var(--color-primary-accent); }
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+.check-list { list-style: none; padding: 0; }
+.check-list li { padding-left: 32px; position: relative; margin-bottom: 12px; }
+.check-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: -1px;
+    color: #03101d;
+    background: var(--color-primary-accent);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background: #030915;
+    color: rgba(232,244,253,0.72);
+    padding: 64px 24px 32px;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(0,212,255,0.16);
+}
+.footer-brand {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 24px;
+}
+.footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
+.footer-links a { color: rgba(232,244,253,0.78); }
+.footer-links a:hover { color: var(--color-primary-accent); }
+.footer-disclosure {
+    max-width: 650px;
+    margin: 0 auto 24px;
+    font-size: 0.8rem;
+    color: rgba(232,244,253,0.52);
+}
+
+/* Light section overrides for embedded old inline styling */
+.bg-alt .widget-title,
+.bg-tint .widget-title,
+.bg-alt .accordion-header,
+.bg-tint .accordion-header {
+    color: #071226;
+}
+.bg-alt .accordion-item,
+.bg-tint .accordion-item,
+.bg-alt .pricing-row,
+.bg-tint .pricing-row,
+.bg-alt .widget-box,
+.bg-tint .widget-box {
+    background: rgba(255,255,255,0.72);
+    border-color: rgba(110,86,207,0.18);
+    box-shadow: 0 16px 48px rgba(26,43,60,0.12);
+}
+.bg-alt .pricing-details h4,
+.bg-tint .pricing-details h4 { color: #071226; }
+.bg-alt .pricing-details p,
+.bg-tint .pricing-details p { color: rgba(26,43,60,0.68); }
+.bg-tint .accordion-content p,
+.bg-alt .accordion-content p { color: rgba(26,43,60,0.82); }
+.bg-tint .btn-filter,
+.bg-alt .btn-filter {
+    color: #071226;
+    background: rgba(255,255,255,0.72);
+    border-color: rgba(110,86,207,0.2);
+}
+.bg-tint select,
+.bg-alt select {
+    color: #071226;
+    background: rgba(255,255,255,0.84);
+    border-color: rgba(110,86,207,0.2);
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .hero-shell,
+    .saas-grid,
+    .tech-showcase {
+        grid-template-columns: 1fr;
+    }
+    .hero-product-panel { transform: none; }
+    .hero-stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .dual-image-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+    :root { --section-padding-v: 62px; }
+    #hero-particles { display: none; }
+    .hero { min-height: auto; padding: 62px 0; }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background: rgba(5,13,31,0.98);
+        padding: 20px 24px;
+        border-bottom: 1px solid rgba(0,212,255,0.2);
+    }
+    .nav-links.show { display: flex; }
+    .mobile-menu-btn { display: block; }
+    h1 { font-size: 40px; }
+    h2 { font-size: 30px; }
+    .pricing-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .pricing-price { text-align: left; }
+    .step-connector { display: none; }
+    .process-steps li { padding-left: 60px; }
+        .hero-stat-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .hero-stat-grid { grid-template-columns: 1fr 1fr; }
+    .hero-stat { padding: 13px 11px; }
+    .hero-stat strong { font-size: 1rem; }
+}
+
+</style>
+</head>
+<body>
+<header id="site-header">
+<div class="header-inner">
+<div class="logo"><svg aria-label="Secure iPhone folder banner" class="brand-art" role="img" viewBox="0 0 250 56" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="brandBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#071226"/><stop offset="55%" stop-color="#0A1628"/><stop offset="100%" stop-color="#1A1450"/></linearGradient><linearGradient id="brandGlow" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00D4FF"/><stop offset="100%" stop-color="#6E56CF"/></linearGradient><linearGradient id="screenGlow" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#103A69"/><stop offset="100%" stop-color="#0D2040"/></linearGradient><filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="2.3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><rect x="1" y="1" width="248" height="54" rx="18" fill="url(#brandBg)" stroke="rgba(0,212,255,0.26)"/><path d="M18 42 C42 14, 84 14, 116 30 S190 50, 232 24" fill="none" opacity="0.55" stroke="url(#brandGlow)" stroke-width="2.1"/><g filter="url(#softGlow)"><circle cx="34" cy="28" fill="rgba(0,212,255,0.10)" r="15" stroke="rgba(0,212,255,0.36)"/><path d="M34 17l8 3v6c0 6.5-4.8 11.8-8 13-3.2-1.2-8-6.5-8-13v-6l8-3Z" fill="none" stroke="#9CEEFF" stroke-width="2"/><path d="M34 23c-2.4 0-4.3 2-4.3 4.4v1.1h8.6v-1.1c0-2.4-1.9-4.4-4.3-4.4Zm-5 5.6h10v6.1h-10Z" fill="#00D4FF" opacity="0.9"/></g><g transform="translate(86 8)"><rect x="10" y="0" width="54" height="40" rx="12" fill="#112848" stroke="rgba(0,212,255,0.35)"/><rect x="14" y="4" width="46" height="32" rx="10" fill="url(#screenGlow)"/><rect x="30" y="2.5" width="14" height="3.5" rx="1.75" fill="#4A5770"/><rect x="0" y="17" width="34" height="22" rx="8" fill="rgba(0,212,255,0.15)" stroke="#70E8FF"/><path d="M8 23h10.5a3.5 3.5 0 0 1 2.6 1.2l1.6 1.8H34v8.2A4.8 4.8 0 0 1 29.2 39H8A4.8 4.8 0 0 1 3.2 34.2V27.8A4.8 4.8 0 0 1 8 23Z" fill="#11AFFF"/><rect x="15" y="27.5" width="8" height="7.5" rx="1.8" fill="#D9F7FF"/><path d="M17 27.5v-1.3a2 2 0 1 1 4 0v1.3" fill="none" stroke="#0D2B52" stroke-width="1.4"/><circle cx="52" cy="26" fill="rgba(110,86,207,0.20)" r="12" stroke="rgba(110,86,207,0.44)"/><path d="M52 20c-3.2 0-5.8 2.6-5.8 5.8v1.4h11.6v-1.4c0-3.2-2.6-5.8-5.8-5.8Zm-6.8 7.2h13.6v8.2H45.2Z" fill="#8F7DFF"/></g><g opacity="0.75"><circle cx="214" cy="16" fill="#00D4FF" r="1.8"/><circle cx="224" cy="21" fill="#6E56CF" r="1.6"/><circle cx="208" cy="34" fill="#00D4FF" r="1.4"/></g></svg></div>
+<button aria-label="Toggle Menu" class="mobile-menu-btn">☰</button>
+<nav class="nav-links">
+<a href="#overview">Guide</a>
+<a href="#methods">Methods</a>
+<a href="#comparison">Comparison</a>
+<a href="#faq">FAQ</a>
+<a class="nav-cta" href="#recommendation">See Our Top Pick →</a>
+</nav>
+</div>
+</header>
+<!-- S1: HERO -->
+<section class="hero"><canvas id="hero-particles"></canvas>
+<div class="container-wide hero-shell"><div class="hero-content">
+<div class="breadcrumb">Guides / Mobile Privacy / iOS 18</div>
+<h1>How to <span class="text-glow">Lock</span> a Folder on iPhone in iOS 18</h1>
+<p>If you're trying to figure out how to lock an entire folder of apps, photos, or documents on your iPhone, you aren't alone. Apple's strict privacy rules make this surprisingly complicated. This guide breaks down the native workarounds and the <a href="https://appadvice.com/app/secure-gallery-password-vault-hide-photo-video/959450745" rel="noopener noreferrer" target="_blank">secure vault apps</a> that actually get the job done.</p>
+<div class="hero-meta">
+<span><strong>Editorial Team</strong></span>
+<span>·</span>
+<span>Updated May 2026</span>
+<span>·</span>
+<span>12 min read</span>
+</div><div class="hero-stat-grid"><div class="hero-stat"><strong><span class="stat-prefix">AES </span><span class="counter" data-count="256" data-suffix="-bit">0</span></strong><span>Encryption</span></div><div class="hero-stat"><strong><span class="counter" data-count="5" data-suffix=" Devices">0</span></strong><span>Pro Sync</span></div><div class="hero-stat"><strong><span class="counter" data-count="1" data-suffix=" GB">0</span></strong><span>Free Locker</span></div><div class="hero-stat"><strong><span class="counter" data-count="12" data-suffix=" min">0</span></strong><span>Read Time</span></div></div>
+<div class="quick-answer">
+<span class="quick-answer-label">Quick Answer</span>
+<p><strong>Can you lock a folder on iPhone?</strong> iOS 18 does not feature a native, system-wide "locked folder" option for the home screen or Files app due to sandboxing rules. To secure data, you must either lock individual Apple Notes, use the <a href="https://www.inverse.com/input/guides/how-to-keep-nudes-safe-iphone-ios" rel="noopener noreferrer" target="_blank">Hidden Album</a> in Photos, or install a dedicated third-party encrypted vault app like Folder Lock to password-protect mixed file types in one place.</p>
+</div>
+<!-- Interactive: Search Intent Selector -->
+<div class="widget-box">
+<h3 class="widget-title">What are you trying to do today?</h3>
+<div class="btn-group" id="intent-filter">
+<button class="btn-filter active" data-target="all">Show All</button>
+<button class="btn-filter" data-target="intent-native">Use Built-in iOS Tools</button>
+<button class="btn-filter" data-target="intent-thirdparty">Find a Secure Vault App</button>
+<button class="btn-filter" data-target="intent-troubleshoot">Recover a Locked File</button>
+</div>
+</div>
+</div><div class="hero-product-panel"><div class="product-panel-inner"><div class="panel-bar"><span></span><span></span><span></span></div><img alt="Folder Lock iOS mobile and tablet encrypted vault interface" class="hero-product-image" decoding="async" loading="eager" src="https://i.ibb.co/8LxjHwBP/vault-ios-mobile-and-tablet-mockup.png"/><div class="mini-terminal">&gt; security layer: <span>encrypted vault active</span><br/>&gt; files: photos · videos · documents · wallets</div></div></div></div>
+</section>
+<!-- S2: TABLE OF CONTENTS -->
+<section class="section-wrap bg-alt">
+<div class="container-reading">
+<div class="toc-card">
+<h3>Guide Contents</h3>
+<ul class="toc-list">
+<li><a href="#overview">1. Why Native iOS Folder Locking Doesn't Exist</a></li>
+<li><a href="#methods">2. Method 1: Locking Folders in Apple Notes</a></li>
+<li><a href="#hidden-album">3. Method 2: The Photos Hidden Album</a></li>
+<li><a href="#recommendation">4. Method 3: Using a Secure Vault (Our Top Pick)</a></li>
+<li><a href="#comparison">5. Methods Comparison Table</a></li>
+<li><a href="#compatibility">6. iOS 18 Security Compatibility Checker</a></li>
+<li><a href="#faq">7. Frequently Asked Questions</a></li>
+</ul>
+</div>
+</div>
+</section>
+<!-- S3: OVERVIEW & LIMITATIONS -->
+<section class="section-wrap" data-intent="all" id="overview">
+<div class="container-reading">
+<span class="section-badge">System Architecture</span>
+<h2>Why Native iOS Folder Locking Doesn't Exist</h2>
+<p>Unlike Windows or Android, Apple designed iOS around a strict security concept called "sandboxing." This means every app operates in its own isolated environment. One app cannot easily peek into the folders of another app, and the operating system itself doesn't provide a master "lock this folder" switch for the Files app or Home Screen.</p>
+<p>Because of this architecture, if you search for "how to lock a folder in iphone files," you will find that Apple only allows you to compress files into a ZIP, but natively locking that ZIP with a password isn't supported on iOS without third-party Shortcuts or external apps.</p>
+<p>This leaves iPhone users with two primary paths: utilizing fragmented, app-specific locks (like locking a Note or hiding a Photo), or adopting a dedicated third-party secure vault that handles its own internal encryption.</p>
+<div class="tech-showcase"><figure class="image-shell"><img alt="Smartphone protected by a digital security shield for iPhone folder privacy" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/h1C8dtH1/Smartphone-Shield.jpg"/></figure><div aria-label="Security layer stack" class="security-layer-stack"><div class="layer-card">iOS Sandbox</div><div class="layer-card">Biometric Gate</div><div class="layer-card">Vault Boundary</div><div class="layer-card">AES 256-bit</div></div></div></div>
+</section>
+<!-- S4: NATIVE METHODS [Layer 1] -->
+<section class="section-wrap bg-tint" data-intent="intent-native" id="methods">
+<div class="container-reading">
+<span class="section-badge">Built-in Tools</span>
+<h2>How to Lock a Folder in Notes on iPhone</h2>
+<p>If your goal is to protect text, scanned documents, or a few attached images, Apple Notes is the most reliable built-in option. iOS 18 allows you to lock individual notes using Face ID, Touch ID, or your device passcode.</p>
+<h3>Step-by-Step Guide:</h3>
+<ol>
+<li>Open the <strong>Notes app</strong> and navigate to the note you want to protect.</li>
+<li>Tap the <strong>three dots (...)</strong> in the top right corner.</li>
+<li>Select <strong>Lock</strong> from the drop-down menu.</li>
+<li>Authenticate using Face ID or your device passcode. A lock icon will appear next to the note.</li>
+</ol>
+<figure class="image-shell"><img alt="Apple Notes lock screen showing private note protection on iPhone" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/S4vzVL5V/apple-notes-lock.jpg"/></figure><p><em>Limitations:</em> You cannot lock an entire "Folder" of notes at once in the folder directory view; you must lock the notes individually. Additionally, you cannot lock notes that contain PDFs, audio, video, or Keynote documents natively.</p>
+<h2 id="hidden-album">How to Lock a Photo Folder on iPhone</h2>
+<p>If you are trying to hide images from your main camera roll, iOS 18 automatically locks the "Hidden" and "Recently Deleted" albums behind Face ID.</p>
+<ul class="check-list">
+<li>Select photos in your library, tap the share icon, and select <strong>Hide</strong>.</li>
+<li>Go to the Albums tab and scroll to the bottom under "Utilities".</li>
+<li>Tap <strong>Hidden</strong>. Face ID will authenticate before revealing the contents.</li>
+</ul><div class="dual-image-grid"><figure class="image-shell"><img alt="iPhone Hidden Album privacy screen for locked private photos" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/VWwRM3SS/iphone-hidden-album-private-photos.jpg"/></figure><figure class="image-shell"><img alt="iOS vault app Touch ID authentication screen for private files" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/20vP7Vnf/vault-ios-appstore-touch-id-authentication.png"/></figure></div>
+</div>
+</section>
+<!-- S5: WHY RECOMMEND FOLDER LOCK [Premium SaaS Moment - Layer 2] -->
+<section class="saas-band" data-intent="intent-thirdparty" id="recommendation">
+<div class="container-wide saas-grid">
+<div class="saas-content">
+<span class="section-badge" style="background: rgba(255,255,255,0.2); color:#fff;">Editorial Pick</span>
+<h2>Why We Recommend <a href="https://cloudstorageinfo.org/folder-lock-review" rel="noopener noreferrer" target="_blank">Folder Lock</a> for Complete Privacy</h2>
+<p>Native iOS tools are fragmented. You have to lock notes in one app, hide photos in another, and leave standard documents completely exposed in the Files app. After testing various mobile privacy setups, we recommend <strong>Folder Lock</strong> for users who need a centralized, encrypted vault.</p>
+<p>Folder Lock doesn't just hide files; it encrypts them using <a href="https://psbios.com/file-encryption-explained/" rel="noopener noreferrer" target="_blank">AES 256-bit</a> military-grade standards. It acts as an isolated safe inside your iPhone where you can store photos, videos, audio, secure wallets (like credit card data), and secret notes all under one master PIN or biometric lock.</p>
+<div class="saas-chips">
+<div class="saas-chip">AES 256-bit Encryption</div>
+<div class="saas-chip">Wi-Fi PC Transfer</div>
+<div class="saas-chip">Hack Attempt Monitor</div>
+<div class="saas-chip">Cross-Platform Sync</div>
+</div>
+<div class="saas-ctas">
+<a class="btn-primary" href="https://store.newsoftwares.net/?add=fl" rel="noopener noreferrer" target="_blank">Download Free Version →</a>
+<a class="btn-outline" href="https://store.newsoftwares.net/?add=fl10" rel="noopener noreferrer" target="_blank">View Pro Pricing →</a>
+</div>
+</div>
+<div class="saas-mockup">
+<h3 style="color:#fff; margin-bottom: 12px; border:none;">Folder Lock iOS Dashboard</h3>
+<p style="font-size: 0.9rem; color: #8fa0c9;">A unified interface to lock Photos, Videos, Documents, Wallets, and Audio securely behind a master PIN. Includes a Secure Browser that leaves zero history footprint.</p>
+<!-- Visual placeholder for screenshot representation -->
+
+<figure class="image-shell"><img alt="Folder Lock iOS dashboard showing encrypted media and document vault categories" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/vCw7q9JY/folder-lock-ios-screenshot-2.png"/></figure></div>
+</div>
+</section>
+<!-- S7: CORE FEATURES (V3 Masonry) -->
+<section class="section-wrap" data-intent="intent-thirdparty">
+<div class="container-wide">
+<span class="section-badge">At a glance</span>
+<h2 style="border:none;">What a Dedicated Vault Actually Secures</h2>
+<div class="masonry-grid">
+<div class="masonry-card"><div class="card-image"><img alt="Hack attempt monitoring panel capturing failed access attempts" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/DPBbtBCG/Monitoring-Attempts.jpg"/></div>
+<h4>Hack Attempt Monitoring</h4>
+<p>If someone picks up your iPhone and tries to guess your Folder Lock PIN, the app silently uses the front-facing camera to capture a photo of the intruder and logs the timestamp of the failed attempt.</p>
+</div>
+<div class="masonry-card"><div class="card-image"><img alt="Secure Wi-Fi transfer between desktop computer and mobile device" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/hFNDKdTq/PC-Mobile-Ecosystem.jpg"/></div>
+<h4>Cable-Free Wi-Fi Transfer</h4>
+<p>Moving secure files between your iPhone and your PC or Mac usually risks exposing them. Folder Lock includes a built-in Wi-Fi transfer feature, allowing you to move files securely over your local network using a browser URL.</p>
+</div>
+<div class="masonry-card"><div class="card-image"><img alt="Encrypted private wallet storage for credit cards and personal secrets" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/zDhHDzm/Securing-Private-Wallets.jpg"/></div>
+<h4>Secure Digital Wallets</h4>
+<p>Store highly sensitive text data—like credit card numbers, bank routing info, and SSNs—in structured, encrypted templates rather than leaving them in your Apple Notes.</p>
+</div>
+<div class="masonry-card"><div class="card-image"><img alt="iOS vault cloud backup screen for protected locker synchronization" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/dsZkZX9t/vault-ios-appstore-cloud-backup-dropbox.png"/></div>
+<h4>Cloud Backup Independence</h4>
+<p>Unlike iCloud, which syncs everything automatically, Folder Lock lets you selectively backup your encrypted lockers to Dropbox, Google Drive, or OneDrive, keeping the decryption keys strictly on your device.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- S8: METHODS COMPARISON (V6) -->
+<section class="section-wrap bg-alt" data-intent="all" id="comparison">
+<div class="container-reading">
+<span class="section-badge">Compare</span>
+<h2>iPhone Folder Lock Methods Comparison</h2>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Mixed File Support</th>
+<th>Security Level</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Apple Notes (Native)</td>
+<td>No (Text/Images only)</td>
+<td>Moderate (Biometric)</td>
+<td>Quick text protection</td>
+</tr>
+<tr>
+<td>Hidden Album (Native)</td>
+<td>No (Photos/Video only)</td>
+<td>Moderate (Biometric)</td>
+<td>Hiding camera roll items</td>
+</tr>
+<tr>
+<td>Screen Time Limits</td>
+<td>No (Locks apps, not files)</td>
+<td>Low (Parental PIN)</td>
+<td>Child safety</td>
+</tr>
+<tr class="highlight-row">
+<td><a href="https://folder-lock.com/" rel="noopener noreferrer" target="_blank">Folder Lock App</a></td>
+<td>Yes (Any file type)</td>
+<td>High (AES 256-bit)</td>
+<td>Complete centralized privacy</td>
+</tr>
+</tbody>
+</table>
+</div><figure class="image-shell"><img alt="Digital data protection vault representing centralized iPhone file security" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/bMzYGK6K/Data-Protection-Vault.jpg"/></figure>
+</div>
+</section>
+<!-- S9: TUTORIAL -->
+<section class="section-wrap" data-intent="intent-thirdparty">
+<div class="container-reading">
+<span class="section-badge">Step by Step</span>
+<h2>How to Lock Files in Folder Lock for iPhone</h2>
+<p>Moving your sensitive files out of the exposed iOS Files app or Camera Roll and into an encrypted vault is a straightforward process.</p>
+<div class="steps-shell"><svg aria-hidden="true" class="step-connector" preserveaspectratio="none" viewbox="0 0 42 420"><path d="M21 0 V420"></path></svg><ol class="process-steps">
+<li><strong>Install and Setup:</strong> Download Folder Lock from the App Store. Launch it and set a strong Master Password (minimum 4 characters). <em>Note: This password is unrecoverable if lost.</em></li>
+<li><strong>Select the Category:</strong> From the main dashboard, tap the icon matching your file type (Photos, Videos, Documents, or Audio).</li>
+<li><strong>Create a Folder/Album:</strong> Tap the <strong>Add (+)</strong> button at the top bar to create a new album or folder name.</li>
+<li><strong>Import Files:</strong> Open your new folder and tap the Add (+) button again. You can import directly from your iPhone Gallery, use the secure built-in camera, or use the Wi-Fi feature to pull files directly from a PC/Mac.</li>
+<li><strong>Delete Originals:</strong> Once imported, iOS will ask if you want to allow Folder Lock to delete the original item from your camera roll. Confirm this to ensure the file only exists inside the secure vault.</li>
+</ol></div><figure class="image-shell"><img alt="iOS secure vault app screen for importing and locking private files" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/HDTt1D1R/ns-vault-ios-1.png"/></figure>
+</div>
+</section>
+<!-- INTERACTIVE: COMPATIBILITY CHECKER -->
+<section class="section-wrap bg-tint" data-intent="all" id="compatibility">
+<div class="container-reading">
+<div class="widget-box">
+<h3 class="widget-title">iOS Security Compatibility Checker</h3>
+<p style="font-size: 0.9rem; color: var(--color-meta-text);">Check which native locking features your device supports before downloading third-party apps.</p>
+<select id="ios-version">
+<option value="">Select your iOS Version</option>
+<option value="ios18">iOS 18 or newer</option>
+<option value="ios16">iOS 16 - 17</option>
+<option value="ios15">iOS 15 or older</option>
+</select>
+<button class="btn-filter" id="check-compat" style="background: var(--color-primary-accent); color: white;">Check Compatibility</button>
+<div id="compat-result" style="margin-top: 1rem; font-weight: 600; color: var(--color-heading-text);"></div>
+</div>
+<figure class="image-shell"><img alt="iOS vault credentials screen with PIN pattern and password authentication" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/DPK7Tw28/vault-ios-appstore-credentials-pin-pattern-password.png"/></figure></div>
+</section>
+<!-- S13: PRICING (V1) -->
+<section class="section-wrap" data-intent="intent-thirdparty">
+<div class="container-reading">
+<span class="section-badge">Cost &amp; Value</span>
+<h2>Folder Lock iOS Pricing</h2>
+<p>Folder Lock offers a functional free tier for basic needs, and a one-time Pro upgrade for power users. <em>(Note: Prices are subject to App Store localization).</em></p>
+<div class="pricing-row">
+<div class="pricing-details">
+<h4>Free Version</h4>
+<p>1 GB Locker Size · Sync across 2 Devices · Basic Photo/Video locking</p>
+</div>
+<div class="pricing-price">$0</div>
+</div>
+<div class="pricing-row highlight">
+<div class="pricing-details">
+<h4>Pro Version</h4>
+<p>Unlimited Size · Sync 5 Devices · Wi-Fi Transfer · Hack Attempts Monitor</p>
+</div>
+<div class="pricing-price">$39.95 <span style="font-size: 0.8rem; color: var(--color-meta-text); font-weight: normal; display:block;">One-time purchase</span></div>
+</div>
+<div class="pricing-image"><img alt="Folder Lock 10 software boxshot for secure file locking and encryption" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/V0Sw4tk7/folder-lock-10-boxshot.png"/></div></div>
+</section>
+<!-- S16: TROUBLESHOOTING -->
+<section class="section-wrap bg-alt" data-intent="intent-troubleshoot">
+<div class="container-reading">
+<span class="section-badge">Owner Recovery</span>
+<h2>Troubleshooting: Access Recovery</h2>
+<p>If you are locked out of your own files, follow these legitimate owner-recovery steps. <em>Note: We do not provide methods for bypassing encryption on devices you do not own.</em></p><figure class="image-shell"><img alt="Locked mobile device protecting private encrypted files during recovery" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/1tCFpZc5/Device-Locked-Files.jpg"/></figure>
+<div class="accordion-item">
+<button class="accordion-header">Forgot your Folder Lock Master Password? <span>+</span></button>
+<div class="accordion-content">
+<p>Because Folder Lock uses strict local AES-256 encryption without backdoors, the Master Password is fundamentally unrecoverable by customer support. If you forget it, the data inside the vault cannot be decrypted. This is why setting a memorable but secure PIN is critical. If you enabled cloud backup, you may be able to restore the encrypted locker file to a new device, but you will still need the original password to open it.</p>
+</div>
+</div>
+<div class="accordion-item">
+<button class="accordion-header">Native Notes app won't accept my Face ID? <span>+</span></button>
+<div class="accordion-content">
+<p>If Apple Notes fails to unlock a folder, it will fall back to requiring the specific password you created when you first locked a note on that device. If you forgot your Notes password, you can reset it in <strong>Settings &gt; Notes &gt; Password</strong>. However, resetting the password only applies to <em>future</em> notes; it will not unlock previously locked notes.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- S17: TESTIMONIALS (V2) -->
+<section class="ticker-wrap" data-intent="intent-thirdparty">
+<div class="ticker">
+<!-- Duplicated for infinite scroll effect -->
+<div class="ticker-card">
+<p class="ticker-quote">"Finally a way to keep my sensitive work PDFs secure on my phone without relying on Apple's messy Files app workarounds."</p>
+<div class="ticker-author">— David S., iOS 18 User</div>
+</div>
+<div class="ticker-card">
+<p class="ticker-quote">"The Wi-Fi transfer feature is a lifesaver. I can move confidential documents from my PC to my iPhone without ever touching iTunes or iCloud."</p>
+<div class="ticker-author">— Sarah M., Financial Consultant</div>
+</div>
+<div class="ticker-card">
+<p class="ticker-quote">"I love the Hack Attempt monitor. It gives me total peace of mind knowing I'll see a picture of anyone who tries to guess my PIN."</p>
+<div class="ticker-author">— Marcus T., Pro User</div>
+</div>
+<!-- Duplicates -->
+<div class="ticker-card">
+<p class="ticker-quote">"Finally a way to keep my sensitive work PDFs secure on my phone without relying on Apple's messy Files app workarounds."</p>
+<div class="ticker-author">— David S., iOS 18 User</div>
+</div>
+<div class="ticker-card">
+<p class="ticker-quote">"The Wi-Fi transfer feature is a lifesaver. I can move confidential documents from my PC to my iPhone without ever touching iTunes or iCloud."</p>
+<div class="ticker-author">— Sarah M., Financial Consultant</div>
+</div>
+</div>
+</section>
+<!-- S20: FAQ (V6) -->
+<section class="section-wrap" data-intent="all" id="faq">
+<div class="container-reading">
+<span class="section-badge">Common Questions</span>
+<h2>Frequently Asked Questions</h2>
+<div class="accordion-item">
+<button class="accordion-header">Can you lock a folder in the iPhone Files app? <span>+</span></button>
+<div class="accordion-content">
+<p>No. Natively, iOS 18 does not allow you to put a password or Face ID lock on a standard folder within the Files app. You must use a third-party vault app like Folder Lock to achieve this functionality.</p>
+</div>
+</div>
+<div class="accordion-item">
+<button class="accordion-header">Is biometric app locking more secure than a PIN? <span>+</span></button>
+<div class="accordion-content">
+<p>Biometrics (Face ID/Touch ID) are highly secure against remote hacking and "shoulder surfing" (someone watching you type a PIN). However, legally and physically, a strong alphanumeric password is often considered the highest tier of security, which is why Folder Lock relies on a Master Password.</p>
+</div>
+</div>
+<div class="accordion-item">
+<button class="accordion-header">What is the difference between hiding apps and locking folders? <span>+</span></button>
+<div class="accordion-content">
+<p>Hiding an app (via iOS 18's new home screen features) merely removes the app icon from immediate view. Locking a folder encrypts the actual data files (documents, photos) so they cannot be extracted or viewed even if the phone is plugged into a computer.</p>
+</div>
+</div>
+<div class="accordion-item">
+<button class="accordion-header">Can someone bypass the app lock by restarting the iPhone? <span>+</span></button>
+<div class="accordion-content">
+<p>No. When using a true encryption app like Folder Lock, restarting the phone does not decrypt the data. The files remain secured by AES 256-bit encryption until the Master Password is provided.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- S22: FINAL VERDICT -->
+<section class="section-wrap bg-tint" data-intent="all">
+<div class="container-reading" style="text-align: center;">
+<h2>The Bottom Line</h2>
+<figure class="image-shell"><img alt="Military grade file shield protecting sensitive iPhone documents and media" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/C5sfWRJm/Military-Grade-File-Shield.jpg"/></figure><p style="max-width: 600px; margin: 0 auto 2rem;">If you just need to lock a quick grocery list, Apple Notes works fine. If you want to hide a few photos, the native Hidden Album is sufficient. But if you need serious, cross-platform encryption for sensitive documents, financial wallets, and mixed media on your iPhone, a dedicated tool is mandatory. We highly recommend Folder Lock for its uncompromising security architecture.</p>
+<div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+<a class="btn-primary" href="https://store.newsoftwares.net/?add=fl" rel="noopener noreferrer" target="_blank">Download Folder Lock Free →</a>
+<a class="nav-cta" href="https://store.newsoftwares.net/?add=fl10" rel="noopener noreferrer" style="background: transparent; color: var(--color-primary-accent);" target="_blank">View Pro Version Pricing →</a>
+</div>
+</div>
+</section>
+<footer><div class="footer-brand"><svg aria-label="Secure iPhone folder banner" class="brand-art" role="img" viewBox="0 0 250 56" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="brandBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#071226"/><stop offset="55%" stop-color="#0A1628"/><stop offset="100%" stop-color="#1A1450"/></linearGradient><linearGradient id="brandGlow" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00D4FF"/><stop offset="100%" stop-color="#6E56CF"/></linearGradient><linearGradient id="screenGlow" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#103A69"/><stop offset="100%" stop-color="#0D2040"/></linearGradient><filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="2.3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><rect x="1" y="1" width="248" height="54" rx="18" fill="url(#brandBg)" stroke="rgba(0,212,255,0.26)"/><path d="M18 42 C42 14, 84 14, 116 30 S190 50, 232 24" fill="none" opacity="0.55" stroke="url(#brandGlow)" stroke-width="2.1"/><g filter="url(#softGlow)"><circle cx="34" cy="28" fill="rgba(0,212,255,0.10)" r="15" stroke="rgba(0,212,255,0.36)"/><path d="M34 17l8 3v6c0 6.5-4.8 11.8-8 13-3.2-1.2-8-6.5-8-13v-6l8-3Z" fill="none" stroke="#9CEEFF" stroke-width="2"/><path d="M34 23c-2.4 0-4.3 2-4.3 4.4v1.1h8.6v-1.1c0-2.4-1.9-4.4-4.3-4.4Zm-5 5.6h10v6.1h-10Z" fill="#00D4FF" opacity="0.9"/></g><g transform="translate(86 8)"><rect x="10" y="0" width="54" height="40" rx="12" fill="#112848" stroke="rgba(0,212,255,0.35)"/><rect x="14" y="4" width="46" height="32" rx="10" fill="url(#screenGlow)"/><rect x="30" y="2.5" width="14" height="3.5" rx="1.75" fill="#4A5770"/><rect x="0" y="17" width="34" height="22" rx="8" fill="rgba(0,212,255,0.15)" stroke="#70E8FF"/><path d="M8 23h10.5a3.5 3.5 0 0 1 2.6 1.2l1.6 1.8H34v8.2A4.8 4.8 0 0 1 29.2 39H8A4.8 4.8 0 0 1 3.2 34.2V27.8A4.8 4.8 0 0 1 8 23Z" fill="#11AFFF"/><rect x="15" y="27.5" width="8" height="7.5" rx="1.8" fill="#D9F7FF"/><path d="M17 27.5v-1.3a2 2 0 1 1 4 0v1.3" fill="none" stroke="#0D2B52" stroke-width="1.4"/><circle cx="52" cy="26" fill="rgba(110,86,207,0.20)" r="12" stroke="rgba(110,86,207,0.44)"/><path d="M52 20c-3.2 0-5.8 2.6-5.8 5.8v1.4h11.6v-1.4c0-3.2-2.6-5.8-5.8-5.8Zm-6.8 7.2h13.6v8.2H45.2Z" fill="#8F7DFF"/></g><g opacity="0.75"><circle cx="214" cy="16" fill="#00D4FF" r="1.8"/><circle cx="224" cy="21" fill="#6E56CF" r="1.6"/><circle cx="208" cy="34" fill="#00D4FF" r="1.4"/></g></svg></div>
+<div class="footer-links">
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Use</a>
+<a href="#">Editorial Policy</a>
+<a href="https://www.newsoftwares.net" rel="noopener noreferrer" target="_blank">Developer: NewSoftwares.net</a>
+</div>
+<p class="footer-disclosure">This site operates as an independent editorial resource. Some links may earn a referral commission at no cost to you. Product recommendations reflect editorial judgment and independent assessment. Folder Lock is developed by NewSoftwares.net.</p>
+<p>© 2026 iPhoneFolderSecurity</p>
+</footer>
+<!-- Schema Markup -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Can you lock a folder in the iPhone Files app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Natively, iOS 18 does not allow you to put a password or Face ID lock on a standard folder within the Files app. You must use a third-party vault app like Folder Lock to achieve this functionality."
+        }
+      },{
+        "@type": "Question",
+        "name": "Can someone bypass the app lock by restarting the iPhone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. When using a true encryption app like Folder Lock, restarting the phone does not decrypt the data. The files remain secured by AES 256-bit encryption until the Master Password is provided."
+        }
+      }]
+    }
+    </script>
+<!-- Interactions -->
+<script defer="">
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Mobile Menu Toggle
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    }
+
+    // Sticky nav blur and darken on scroll
+    const header = document.getElementById('site-header');
+    const updateHeader = () => {
+        if (!header) return;
+        header.classList.toggle('scrolled', window.scrollY > 16);
+    };
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+
+    // Lightweight animated hero particles
+    const canvas = document.getElementById('hero-particles');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (canvas && !reduceMotion && !isMobile) {
+        const ctx = canvas.getContext('2d');
+        const particles = [];
+        const maxParticles = 40;
+        const resizeCanvas = () => {
+            canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+            canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+            ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+        };
+        const seedParticles = () => {
+            particles.length = 0;
+            const w = canvas.offsetWidth;
+            const h = canvas.offsetHeight;
+            for (let i = 0; i < maxParticles; i++) {
+                particles.push({
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    r: 1.1 + Math.random() * 2.2,
+                    vx: (Math.random() - 0.5) * 0.22,
+                    vy: (Math.random() - 0.5) * 0.22,
+                    a: 0.12 + Math.random() * 0.18
+                });
+            }
+        };
+        const draw = () => {
+            const w = canvas.offsetWidth;
+            const h = canvas.offsetHeight;
+            ctx.clearRect(0, 0, w, h);
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0 || p.x > w) p.vx *= -1;
+                if (p.y < 0 || p.y > h) p.vy *= -1;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0, 212, 255, ${p.a})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(draw);
+        };
+        resizeCanvas();
+        seedParticles();
+        draw();
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            seedParticles();
+        }, { passive: true });
+    }
+
+    // Accordion Logic
+    const accordions = document.querySelectorAll('.accordion-header');
+    accordions.forEach(acc => {
+        const item = acc.parentElement;
+        const content = item.querySelector('.accordion-content');
+        const span = acc.querySelector('span');
+        acc.setAttribute('type', 'button');
+        acc.setAttribute('aria-expanded', item.classList.contains('active') ? 'true' : 'false');
+        if (content) {
+            content.style.maxHeight = item.classList.contains('active') ? content.scrollHeight + 'px' : '0px';
+        }
+        if (span) span.textContent = item.classList.contains('active') ? '-' : '+';
+
+        acc.addEventListener('click', () => {
+            const isOpen = item.classList.toggle('active');
+            acc.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            if (content) {
+                content.style.maxHeight = isOpen ? content.scrollHeight + 'px' : '0px';
+            }
+            if (span) span.textContent = isOpen ? '-' : '+';
+        });
+    });
+
+    window.addEventListener('resize', () => {
+        document.querySelectorAll('.accordion-item.active .accordion-content').forEach(content => {
+            content.style.maxHeight = content.scrollHeight + 'px';
+        });
+    }, { passive: true });
+
+    // Intersection Observer for badges, counters and step line
+    const badges = document.querySelectorAll('.section-badge');
+    const stepShells = document.querySelectorAll('.steps-shell');
+    const counters = document.querySelectorAll('.counter');
+
+    const animateCounter = (counter) => {
+        if (counter.dataset.done === 'true') return;
+        counter.dataset.done = 'true';
+        const target = parseInt(counter.dataset.count || '0', 10);
+        const suffix = counter.dataset.suffix || '';
+        let start = 0;
+        const duration = 1000;
+        const startTime = performance.now();
+        const tick = (now) => {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const value = Math.round(start + (target - start) * eased);
+            counter.textContent = value + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (entry.target.classList.contains('section-badge')) {
+                    entry.target.classList.add('visible');
+                }
+                if (entry.target.classList.contains('steps-shell')) {
+                    entry.target.classList.add('line-drawn');
+                }
+                if (entry.target.classList.contains('counter')) {
+                    animateCounter(entry.target);
+                }
+            }
+        });
+    }, { threshold: 0.22 });
+
+    badges.forEach(badge => observer.observe(badge));
+    stepShells.forEach(shell => observer.observe(shell));
+    counters.forEach(counter => observer.observe(counter));
+
+    // Intent Filter Logic
+    const filterBtns = document.querySelectorAll('.btn-filter[data-target]');
+    const sections = document.querySelectorAll('section[data-intent]');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            if (e.target.id === 'check-compat') return;
+            filterBtns.forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            const target = e.target.getAttribute('data-target');
+            sections.forEach(sec => {
+                if (target === 'all' || sec.getAttribute('data-intent') === target || sec.getAttribute('data-intent') === 'all') {
+                    sec.style.display = 'block';
+                } else {
+                    sec.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // Compatibility Checker Logic
+    const compatBtn = document.getElementById('check-compat');
+    if (compatBtn) {
+        compatBtn.addEventListener('click', () => {
+            const val = document.getElementById('ios-version').value;
+            const resDiv = document.getElementById('compat-result');
+            if (val === 'ios18') {
+                resDiv.textContent = "Supported! You can natively hide app icons and use Face ID for Hidden Albums. For mixed-file folder locking, third-party vaults are still required.";
+                resDiv.style.color = "var(--color-primary-accent)";
+            } else if (val === 'ios16' || val === 'ios15') {
+                resDiv.textContent = "Partially Supported. Hidden Albums can be locked, but native app-hiding is missing. A third-party vault is highly recommended.";
+                resDiv.style.color = "#f6c445";
+            } else {
+                resDiv.textContent = "Please select an iOS version.";
+                resDiv.style.color = "#ff6b6b";
+            }
+        });
+    }
+});
+
+</script>
+</body>
+</html>
