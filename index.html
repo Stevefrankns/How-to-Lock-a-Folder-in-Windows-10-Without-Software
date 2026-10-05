@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 
-<html lang="en">
+
+
+
+ Repair build: UI-MEDIA-ALIGNMENT-V4-2026-10-05 
+<!-- Repair build: UI-MEDIA-ALIGNMENT-V4-2026-10-05 --><html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>How to Lock a Folder in Windows 10 Without Software | 2026 Guide</title>
-<meta content="Learn how to lock and protect a folder in Windows 10 without installing software. Compare EFS, Windows accounts and permissions, BitLocker/Device Encryption, limitations, Home vs Pro differences, and recovery steps." name="description"/>
+<meta content="Learn how to protect a folder in Windows 10 with EFS, permissions, BitLocker, and when a dedicated tool like Folder Lock makes more sense." name="description"/>
 <meta content="index,follow,max-image-preview:large" name="robots"/>
 <meta content="WXLVDS835_xsjhNN-3E4a3MNGOOR3NROvw9o-5MD3kE" name="google-site-verification"/>
 <link href="https://how-to-lock-a-folder-in-windows-10.vercel.app/" rel="canonical"/>
 <meta content="article" property="og:type"/>
 <meta content="How to Lock a Folder in Windows 10 Without Software" property="og:title"/>
-<meta content="Use built-in Windows 10 tools to protect folders without installing software, and understand when Windows cannot provide a separate folder password." property="og:description"/>
+<meta content="Learn how to protect a folder in Windows 10 with EFS, permissions, BitLocker, and when a dedicated tool like Folder Lock makes more sense." property="og:description"/>
 <meta content="https://how-to-lock-a-folder-in-windows-10.vercel.app/" property="og:url"/>
-<meta content="https://i.ibb.co/RTVcfd3m/folder-protect-for-windows.jpg" property="og:image"/>
+<meta content="https://www.newsoftwares.net/wp-content/uploads/2025/12/fl-boxshot-HI-res-3.png" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="How to Lock a Folder in Windows 10 Without Software" name="twitter:title"/>
-<meta content="Built-in Windows 10 folder protection: EFS, permissions, BitLocker/Device Encryption, Home vs Pro limits, and recovery guidance." name="twitter:description"/>
-<meta content="https://i.ibb.co/RTVcfd3m/folder-protect-for-windows.jpg" name="twitter:image"/>
+<meta content="Learn how to protect a folder in Windows 10 with EFS, permissions, BitLocker, and when a dedicated tool like Folder Lock makes more sense." name="twitter:description"/>
+<meta content="https://www.newsoftwares.net/wp-content/uploads/2025/12/fl-boxshot-HI-res-3.png" name="twitter:image"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
@@ -43,7 +47,7 @@
     --font-mono: 'JetBrains Mono', monospace;
     --max-reading-width: 780px;
     --max-wide-width: 1180px;
-    --section-padding-v: 86px;
+    --section-padding-v: 72px;
     --radius-card: 22px;
     --shadow-card: 0 22px 70px rgba(0,0,0,0.35);
     --transition-speed: 0.28s;
@@ -155,8 +159,8 @@ li { margin-bottom: 0.6rem; color: rgba(232,244,253,0.86); }
     padding: 8px 12px;
     border-radius: 999px;
     margin-bottom: 1rem;
-    opacity: 0;
-    transform: translateY(10px);
+    opacity: 1;
+    transform: none;
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .section-badge::before {
@@ -250,7 +254,7 @@ header.scrolled {
 /* Hero */
 .hero {
     position: relative;
-    min-height: calc(100vh - 72px);
+    min-height: auto;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -259,7 +263,7 @@ header.scrolled {
         radial-gradient(circle at 82% 12%, rgba(110,86,207,0.32), transparent 30rem),
         radial-gradient(circle at 60% 86%, rgba(0,212,255,0.09), transparent 28rem),
         var(--color-hero-bg);
-    padding: 78px 0 70px;
+    padding: 72px 0 64px;
 }
 .hero::before {
     content: "";
@@ -575,7 +579,7 @@ select option { color: #071226; }
         radial-gradient(circle at 85% 20%, rgba(110,86,207,0.28), transparent 28rem),
         var(--color-saas-bg);
     color: var(--color-saas-text);
-    padding: 92px 0;
+    padding: 72px 0;
 }
 .saas-band h2 { color: #fff; border: none; margin-top: 0; }
 .saas-grid {
@@ -933,6 +937,35 @@ footer {
     color: rgba(232,244,253,0.52);
 }
 
+
+.mockup-image {
+    display: block;
+    width: 100%;
+    max-height: 360px;
+    object-fit: contain;
+    border-radius: 18px;
+    background: rgba(5,13,31,0.56);
+    border: 1px solid rgba(0,212,255,0.18);
+    margin: 0 0 14px;
+}
+.site-footer { width: 100%; }
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr repeat(3, minmax(150px, 1fr));
+    gap: 28px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+.footer-grid h4 { color: #fff; margin: 0 0 10px; }
+.footer-grid p { margin: 0; color: rgba(232,244,253,0.68); }
+.footer-grid a { color: rgba(232,244,253,0.82); }
+.footer-grid a:hover { color: var(--color-primary-accent); }
+.footer-legal {
+    border-top: 1px solid rgba(0,212,255,0.12);
+    padding-top: 22px;
+    color: rgba(232,244,253,0.54);
+}
+
 /* Light section overrides for embedded old inline styling */
 .bg-alt .widget-title,
 .bg-tint .widget-title,
@@ -1010,10 +1043,121 @@ footer {
     .hero-stat-grid { grid-template-columns: 1fr 1fr; }
     .hero-stat { padding: 13px 11px; }
     .hero-stat strong { font-size: 1rem; }
+    .footer-grid { grid-template-columns: 1fr; text-align: center; }
+}
+
+
+/* Screenshot QA V2: contrast + responsive containment */
+html, body { width:100%; max-width:100%; }
+header, main, section, footer { max-width:100%; }
+.container-reading, .container-wide, .header-inner { width:100%; min-width:0; }
+.bg-alt .masonry-card,
+.bg-tint .masonry-card {
+    background: rgba(255,255,255,0.96);
+    border-color: rgba(7,18,38,0.14);
+    box-shadow: 0 18px 44px rgba(7,18,38,0.12);
+    backdrop-filter: none;
+}
+.bg-alt .masonry-card h4,
+.bg-tint .masonry-card h4 { color:#071226; }
+.bg-alt .masonry-card p,
+.bg-tint .masonry-card p { color:#32475f; }
+.bg-alt .masonry-card:hover,
+.bg-tint .masonry-card:hover {
+    border-color: rgba(0,112,145,0.38);
+    box-shadow: 0 20px 48px rgba(7,18,38,0.16);
+}
+@media (max-width:768px) {
+    .container-reading, .container-wide, .header-inner { padding-left:18px; padding-right:18px; }
+    .masonry-grid { grid-template-columns:1fr; gap:18px; }
+    .masonry-card { min-width:0; }
+    .section-wrap { overflow:hidden; }
+}
+
+
+/* V4: stable official-media rendering + graceful fallback */
+.safe-media {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 220px;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+  border: 1px solid rgba(125,170,220,.22);
+}
+.safe-media > .media-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  text-align: center;
+  color: inherit;
+  opacity: .76;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.safe-media > img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 460px;
+  height: auto;
+  object-fit: contain;
+  background: transparent;
+}
+.safe-media figcaption { position: relative; z-index: 2; width: 100%; }
+
+.folderlock-method-card{
+  margin-top:1.6rem;display:grid;grid-template-columns:minmax(220px,.72fr) minmax(0,1.55fr);
+  gap:1.6rem;align-items:center;padding:1.35rem;border:1px solid rgba(0,212,255,.24);
+  background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(110,86,207,.10));border-radius:18px;
+}
+.folderlock-method-boxshot{min-height:280px;border-radius:14px;background:#071226}
+.folderlock-method-boxshot img{max-height:330px}
+.folderlock-method-copy h3{margin:.55rem 0 .8rem}
+.folderlock-method-pricing{margin-top:1rem}
+@media(max-width:780px){
+ .folderlock-method-card{grid-template-columns:1fr}
+ .folderlock-method-boxshot{min-height:220px}
 }
 
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://how-to-lock-a-folder-in-windows-10.vercel.app/#webpage","url":"https://how-to-lock-a-folder-in-windows-10.vercel.app/","name":"How to Lock a Folder in Windows 10 Without Software","description":"A practical guide to protecting a folder in Windows 10 without installing software, using EFS where supported, Windows accounts and permissions, and drive encryption, with clear limits for Windows 10 Home and separate-password needs.","inLanguage":"en"},{"@type":"Article","@id":"https://how-to-lock-a-folder-in-windows-10.vercel.app/#article","headline":"How to Lock a Folder in Windows 10 Without Software","description":"Learn how built-in Windows 10 folder protection works, what EFS and permissions can and cannot do, and why BitLocker protects drives rather than individual folders.","dateModified":"2026-10-05","datePublished":"2026-10-05","mainEntityOfPage":{"@id":"https://how-to-lock-a-folder-in-windows-10.vercel.app/#webpage"},"image":"https://i.ibb.co/RTVcfd3m/folder-protect-for-windows.jpg","author":{"@type":"Organization","name":"Editorial Team"},"publisher":{"@type":"Organization","name":"Windows Folder Security Guide"}},{"@type":"HowTo","@id":"https://how-to-lock-a-folder-in-windows-10.vercel.app/#efs-howto","name":"Encrypt a folder with EFS in Windows 10","description":"Use Windows Encrypting File System on supported Windows 10 editions to encrypt files in a folder to your Windows user account.","totalTime":"PT3M","step":[{"@type":"HowToStep","position":1,"name":"Open folder properties","text":"Right-click the folder and choose Properties."},{"@type":"HowToStep","position":2,"name":"Open advanced attributes","text":"On the General tab, select Advanced."},{"@type":"HowToStep","position":3,"name":"Enable encryption","text":"Select Encrypt contents to secure data and choose OK."},{"@type":"HowToStep","position":4,"name":"Apply encryption","text":"Select Apply, choose whether to apply encryption to the folder only or its contents as appropriate, and confirm."}]},{"@type":"FAQPage","@id":"https://how-to-lock-a-folder-in-windows-10.vercel.app/#faq","mainEntity":[{"@type":"Question","name":"Can I password protect a folder in Windows 10 without software?","acceptedAnswer":{"@type":"Answer","text":"Windows 10 does not provide a built-in standalone password prompt for an ordinary folder. Supported editions can use EFS, which encrypts files to the Windows user account, and separate user accounts can restrict access. A separate folder password requires an encrypted container/archive or dedicated security tool."}},{"@type":"Question","name":"Can I lock a folder in Windows 10 Home?","acceptedAnswer":{"@type":"Answer","text":"Windows 10 Home does not include EFS file and folder encryption. You can separate users with different Windows accounts, use Device Encryption on supported hardware for drive-level protection, or use a reputable encrypted container or vault for a separate password."}},{"@type":"Question","name":"Does BitLocker lock a single folder?","acceptedAnswer":{"@type":"Answer","text":"No. BitLocker protects an entire drive or volume. It is useful against offline access to a lost or stolen device, but it is not a per-folder password feature."}},{"@type":"Question","name":"Is hiding a folder the same as locking it?","acceptedAnswer":{"@type":"Answer","text":"No. Hidden and system attributes only change visibility in File Explorer. They do not encrypt the data and are easy to reverse, so they are not suitable for sensitive files."}},{"@type":"Question","name":"What is the safest built-in way to protect a Windows 10 folder?","acceptedAnswer":{"@type":"Answer","text":"On Windows 10 Pro, Enterprise, or Education, EFS provides built-in file and folder encryption on NTFS volumes. For theft protection across a whole drive, use BitLocker or Device Encryption where available. For a separate password on one folder, use a properly encrypted container or vault."}}]},{"@type":"BreadcrumbList","@id":"https://how-to-lock-a-folder-in-windows-10.vercel.app/#breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://how-to-lock-a-folder-in-windows-10.vercel.app/"},{"@type":"ListItem","position":2,"name":"How to Lock a Folder in Windows 10 Without Software","item":"https://how-to-lock-a-folder-in-windows-10.vercel.app/"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://how-to-lock-a-folder-in-windows-10.vercel.app/#webpage","url":"https://how-to-lock-a-folder-in-windows-10.vercel.app/","name":"How to Lock a Folder in Windows 10 Without Software","description":"A practical guide to protecting a folder in Windows 10 without installing software, using EFS where supported, Windows accounts and permissions, and drive encryption, with clear limits for Windows 10 Home and separate-password needs.","inLanguage":"en"},{"@type":"Article","@id":"https://how-to-lock-a-folder-in-windows-10.vercel.app/#article","headline":"How to Lock a Folder in Windows 10 Without Software","description":"Learn how built-in Windows 10 folder protection works, what EFS and permissions can and cannot do, and why BitLocker protects drives rather than individual folders.","dateModified":"2026-10-05","datePublished":"2026-10-05","mainEntityOfPage":{"@id":"https://how-to-lock-a-folder-in-windows-10.vercel.app/#webpage"},"image":"https://www.newsoftwares.net/wp-content/uploads/2025/12/fl-boxshot-HI-res-3.png","author":{"@type":"Organization","name":"Editorial Team"},"publisher":{"@type":"Organization","name":"Windows Folder Security Guide"}},{"@type":"HowTo","@id":"https://how-to-lock-a-folder-in-windows-10.vercel.app/#efs-howto","name":"Encrypt a folder with EFS in Windows 10","description":"Use Windows Encrypting File System on supported Windows 10 editions to encrypt files in a folder to your Windows user account.","totalTime":"PT3M","step":[{"@type":"HowToStep","position":1,"name":"Open folder properties","text":"Right-click the folder and choose Properties."},{"@type":"HowToStep","position":2,"name":"Open advanced attributes","text":"On the General tab, select Advanced."},{"@type":"HowToStep","position":3,"name":"Enable encryption","text":"Select Encrypt contents to secure data and choose OK."},{"@type":"HowToStep","position":4,"name":"Apply encryption","text":"Select Apply, choose whether to apply encryption to the folder only or its contents as appropriate, and confirm."}]},{"@type":"FAQPage","@id":"https://how-to-lock-a-folder-in-windows-10.vercel.app/#faq","mainEntity":[{"@type":"Question","name":"Can I password protect a folder in Windows 10 without software?","acceptedAnswer":{"@type":"Answer","text":"Windows 10 does not provide a built-in standalone password prompt for an ordinary folder. Supported editions can use EFS, which encrypts files to the Windows user account, and separate user accounts can restrict access. A separate folder password requires an encrypted container/archive or dedicated security tool."}},{"@type":"Question","name":"Can I lock a folder in Windows 10 Home?","acceptedAnswer":{"@type":"Answer","text":"Windows 10 Home does not include EFS file and folder encryption. You can separate users with different Windows accounts, use Device Encryption on supported hardware for drive-level protection, or use a reputable encrypted container or vault for a separate password."}},{"@type":"Question","name":"Does BitLocker lock a single folder?","acceptedAnswer":{"@type":"Answer","text":"No. BitLocker protects an entire drive or volume. It is useful against offline access to a lost or stolen device, but it is not a per-folder password feature."}},{"@type":"Question","name":"Is hiding a folder the same as locking it?","acceptedAnswer":{"@type":"Answer","text":"No. Hidden and system attributes only change visibility in File Explorer. They do not encrypt the data and are easy to reverse, so they are not suitable for sensitive files."}},{"@type":"Question","name":"What is the safest built-in way to protect a Windows 10 folder?","acceptedAnswer":{"@type":"Answer","text":"On Windows 10 Pro, Enterprise, or Education, EFS provides built-in file and folder encryption on NTFS volumes. For theft protection across a whole drive, use BitLocker or Device Encryption where available. For a separate password on one folder, use a properly encrypted container or vault."}}]},{"@type":"BreadcrumbList","@id":"https://how-to-lock-a-folder-in-windows-10.vercel.app/#breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://how-to-lock-a-folder-in-windows-10.vercel.app/"},{"@type":"ListItem","position":2,"name":"How to Lock a Folder in Windows 10 Without Software","item":"https://how-to-lock-a-folder-in-windows-10.vercel.app/"}]}]}</script>
+<style>
+
+/* v3-folderlock-recommendation-2026-10-05 */
+.folderlock-recommendation{margin-top:2rem;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:2rem;align-items:stretch}
+.folderlock-copy,.folderlock-visual{min-width:0}
+.folderlock-product-card{height:100%;border:1px solid rgba(94,207,255,.28);background:linear-gradient(145deg,rgba(9,26,47,.98),rgba(7,18,33,.98));border-radius:22px;padding:26px;box-shadow:0 24px 60px rgba(0,0,0,.24)}
+.folderlock-product-card h3{margin:.35rem 0 .8rem;color:#fff;font-size:1.45rem;line-height:1.25}
+.folderlock-product-card p{color:#c8d7ea}
+.folderlock-kicker{display:inline-flex;padding:7px 11px;border-radius:999px;background:rgba(0,212,255,.11);border:1px solid rgba(0,212,255,.3);color:#7de7ff;font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.folderlock-feature-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;margin:18px 0;padding:0;list-style:none}
+.folderlock-feature-list li{position:relative;padding-left:22px;color:#dce9f6;font-size:.94rem;line-height:1.5}
+.folderlock-feature-list li::before{content:'✓';position:absolute;left:0;top:0;color:#52d8ff;font-weight:900}
+.folderlock-pricing{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0}
+.folderlock-plan{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.055);border-radius:15px;padding:15px}
+.folderlock-plan strong{display:block;color:#fff;font-size:1.05rem;margin-bottom:4px}
+.folderlock-price{display:block;color:#66e0ff;font-size:1.35rem;font-weight:900;margin:4px 0}
+.folderlock-plan small{display:block;color:#9fb4c9;line-height:1.45}
+.folderlock-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.folderlock-actions a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-weight:800;border-radius:12px;padding:12px 16px;transition:.2s ease}
+.folderlock-actions .fl-primary{background:linear-gradient(135deg,#00d4ff,#5f6fff);color:#03111f}
+.folderlock-actions .fl-secondary{border:1px solid rgba(255,255,255,.2);color:#eaf6ff;background:rgba(255,255,255,.04)}
+.folderlock-price-note{margin-top:10px!important;font-size:.78rem!important;color:#8fa4bb!important}
+.folderlock-media-stack{display:grid;gap:14px;height:100%}
+.folderlock-boxshot-wrap,.folderlock-screen-wrap{border:1px solid rgba(255,255,255,.12);background:linear-gradient(145deg,#fff,#eef5fb);border-radius:20px;padding:18px;display:grid;place-items:center;overflow:hidden}
+.folderlock-boxshot-wrap img{display:block;width:auto;max-width:100%;height:auto;max-height:330px;object-fit:contain}
+.folderlock-screen-wrap img{display:block;width:100%;height:auto;max-height:360px;object-fit:contain;border-radius:12px}
+.folderlock-media-caption{margin:.45rem 0 0;text-align:center;color:#9eb3c7;font-size:.78rem;line-height:1.4}
+@media(max-width:860px){.folderlock-recommendation{grid-template-columns:1fr}.folderlock-feature-list,.folderlock-pricing{grid-template-columns:1fr 1fr}.folderlock-boxshot-wrap img{max-height:270px}}
+@media(max-width:520px){.folderlock-feature-list,.folderlock-pricing{grid-template-columns:1fr}.folderlock-product-card{padding:20px}.folderlock-actions a{width:100%}}
+
+</style>
 </head>
 <body>
 <header id="site-header">
@@ -1044,8 +1188,7 @@ footer {
 <p><strong>For built-in protection on Windows 10 Pro, Enterprise, or Education:</strong> use Encrypting File System (EFS) from <em>Properties → Advanced → Encrypt contents to secure data</em>. EFS is tied to your Windows account, not a separate folder password. <strong>Windows 10 Home does not include EFS.</strong> BitLocker protects drives, not individual folders. If you specifically need a separate password for one folder, use a reputable encrypted container/archive or dedicated vault instead of a hidden-folder or batch-file trick.</p>
 </div>
 </div>
-<div class="hero-product-panel"><div class="product-panel-inner"><div class="panel-bar"><span></span><span></span><span></span></div>
-<img alt="Windows folder protection concept showing a secured folder on a PC" class="hero-product-image" decoding="async" fetchpriority="high" loading="eager" src="https://i.ibb.co/RTVcfd3m/folder-protect-for-windows.jpg"/>
+<div class="hero-product-panel"><div class="product-panel-inner"><div class="panel-bar"><span></span><span></span><span></span></div><div class="safe-media native-method-visual"><span class="media-fallback">Windows 10 built-in protection: EFS • NTFS permissions • BitLocker</span></div>
 <div class="mini-terminal"><span>Goal:</span> match the protection method to the threat — other users, stolen hardware, or a separate password.</div>
 </div></div>
 </div>
@@ -1059,7 +1202,7 @@ footer {
 <article class="masonry-card"><h4>Encrypt</h4><p>Transforms the data cryptographically. EFS can encrypt files in supported editions; BitLocker encrypts drives.</p></article>
 <article class="masonry-card"><h4>Separate password</h4><p>Requires an encrypted archive/container or security tool that asks for a password independently of the Windows sign-in.</p></article>
 </div>
-<div class="image-shell"><img alt="Windows File Explorer representing folders that may need privacy protection" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/35v0S8cp/Windows-file-explorer.jpg"/></div>
+<div class="image-shell"></div>
 <div class="widget-box"><h3 class="widget-title">Windows 10 edition checker</h3><p>Choose your edition to see whether built-in EFS file/folder encryption is available.</p>
 <select aria-label="Windows 10 edition" id="windows-edition"><option value="">Select an edition</option><option value="home">Windows 10 Home</option><option value="pro">Windows 10 Pro</option><option value="enterprise">Windows 10 Enterprise</option><option value="education">Windows 10 Education</option></select>
 <button class="btn-primary" id="check-compat" type="button">Check built-in encryption</button><p id="compat-result" style="margin-top:1rem;margin-bottom:0;"></p>
@@ -1067,14 +1210,14 @@ footer {
 <aside class="quick-answer"><span class="quick-answer-label">2026 security note</span><p>Microsoft ended standard Windows 10 support on October 14, 2025. Windows 10 still runs, and these protection methods still exist, but a machine without Extended Security Updates or a supported Windows version has a broader security risk than any single folder setting can solve.</p></aside>
 </div></section>
 <section class="section-wrap" id="methods"><div class="container-wide">
-<span class="section-badge">Built-in methods</span><h2>Three ways to protect a folder in Windows 10 without installing software</h2>
+<span class="section-badge">Choose a method</span><h2>Choose a method: built-in Windows protection or Folder Lock</h2>
 <div class="toc-card"><h3>Pick the outcome you actually need</h3><ul class="toc-list">
 <li><a href="#efs">1. EFS — built-in file/folder encryption on supported editions</a></li>
 <li><a href="#accounts">2. Separate Windows accounts and permissions — shared-PC privacy</a></li>
 <li><a href="#bitlocker">3. BitLocker / Device Encryption — protect the whole drive</a></li>
 <li><a href="#separate-password">What Windows 10 cannot do natively: add an independent password to one ordinary folder</a></li>
 <li><a href="#avoid">What not to rely on for sensitive data</a></li>
-</ul></div>
+</ul></div><div class="folderlock-method-card"><figure class="safe-media folderlock-method-boxshot"><span class="media-fallback">Folder Lock 10 official product boxshot</span><img alt="Folder Lock 10 official product boxshot" decoding="async" loading="lazy" onerror="this.remove()" src="https://www.newsoftwares.net/wp-content/uploads/2025/12/fl-boxshot-HI-res-3.png"/><figcaption>Folder Lock 10 by NewSoftwares</figcaption></figure><div class="folderlock-method-copy"><span class="folderlock-kicker">Recommended when you need more than Windows built-in controls</span><h3>Folder Lock: a dedicated option for password protection and encrypted storage</h3><p>Windows methods work well for account-based access, EFS encryption, or whole-drive protection. If you need a dedicated protected workspace with Folder Lock features such as Protect Folders, encrypted lockers, syncing and other privacy controls, use Folder Lock instead of hidden-folder tricks.</p><div class="folderlock-pricing folderlock-method-pricing"><div class="folderlock-plan"><strong>Free</strong><span class="folderlock-price">$0</span><small>1 GB locker size, 2 devices and limited features.</small></div><div class="folderlock-plan"><strong>Pro</strong><span class="folderlock-price">$39.95/year</span><small>Unlimited locker size, up to 5 devices and Pro safeguards.</small></div></div><div class="folderlock-actions"><a class="fl-primary" href="https://www.newsoftwares.net/folderlock/" rel="noopener noreferrer" target="_blank">Explore Folder Lock</a><a class="fl-secondary" href="https://www.newsoftwares.net/folderlock/download-folderlock-windows/" rel="noopener noreferrer" target="_blank">Download for Windows</a><a class="fl-secondary" href="https://store.newsoftwares.net/" rel="noopener noreferrer" target="_blank">View Pro Pricing</a></div></div></div>
 </div></section>
 <section class="section-wrap bg-tint" id="efs"><div class="container-reading">
 <span class="section-badge">Method 1 · Built in</span><h2>Encrypt a folder with EFS in Windows 10 Pro, Enterprise, or Education</h2>
@@ -1082,34 +1225,55 @@ footer {
 <div class="steps-shell"><svg aria-hidden="true" class="step-connector" preserveaspectratio="none" viewbox="0 0 42 420"><path d="M21 0 C10 70 34 120 21 180 C8 250 34 300 21 420"></path></svg>
 <ol class="process-steps"><li><strong>Right-click the folder</strong> and select <strong>Properties</strong>.</li><li>On the <strong>General</strong> tab, select <strong>Advanced</strong>.</li><li>Select <strong>Encrypt contents to secure data</strong>, then choose <strong>OK</strong>.</li><li>Select <strong>Apply</strong> and confirm how broadly you want the encryption applied.</li></ol>
 </div>
-<div class="image-shell"><img alt="Protected documents illustrating file and folder encryption in Windows" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/Kj8Tw5y3/Protecting-Documents.jpg"/></div>
+<div class="image-shell"></div>
 <div class="quick-answer"><span class="quick-answer-label">Important limitation</span><p>EFS follows the Windows account. If the same account is already signed in, the encrypted files open normally. That is why EFS is excellent for account-based protection but does not satisfy the search intent “ask me for another password every time I open this folder.” Protect your Windows sign-in and keep a secure backup strategy for encryption keys/certificates before relying on EFS for irreplaceable data.</p></div>
 <p>Official reference: <a href="https://support.microsoft.com/en-us/windows/security/encryption/how-to-encrypt-a-file-or-folder" rel="noopener noreferrer" target="_blank">Microsoft — How to encrypt a file or folder</a>.</p>
 </div></section>
 <section class="section-wrap" id="accounts"><div class="container-reading">
 <span class="section-badge">Method 2 · Shared PC</span><h2>Use separate Windows accounts and folder permissions</h2>
 <p>If your real problem is “another person who uses this PC should not browse my files,” the simplest model is often separate Windows accounts. Each person signs in with their own password/PIN and gets a separate profile. NTFS permissions can then restrict which users can read a folder.</p>
-<div class="image-shell"><img alt="Shared PC privacy context for keeping folders separate between Windows user accounts" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/k6HC2hdd/Shared-PC-Privacy-Context.jpg"/></div>
+<div class="image-shell"></div>
 <p>This is <strong>access control, not encryption</strong>. A local administrator can generally take ownership or change permissions, so do not treat permissions alone as protection against an administrator or an attacker with offline disk access.</p>
 <p>Official reference: <a href="https://support.microsoft.com/en-us/windows/security/identity-signin/manage-user-accounts-in-windows" rel="noopener noreferrer" target="_blank">Microsoft — Manage user accounts in Windows</a>.</p>
 </div></section>
 <section class="section-wrap bg-alt" id="bitlocker"><div class="container-reading">
 <span class="section-badge">Method 3 · Device loss</span><h2>Use BitLocker or Device Encryption when the threat is a stolen drive</h2>
 <p>BitLocker is designed for <strong>drive-level encryption</strong>. It protects data if someone removes the disk or tries to read it offline, but it does not put a password on one ordinary folder. Device Encryption provides a simpler drive-encryption experience on supported hardware and editions.</p>
-<div class="image-shell"><img alt="Encrypted drive protection concept illustrating Windows full-drive security" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/C5sfWRJm/Military-Grade-File-Shield.jpg"/></div>
+<div class="image-shell"></div>
 <p>Use BitLocker/Device Encryption for the laptop or storage device, and use EFS or a separate encrypted container if one folder needs a different access boundary.</p>
 <p>Official references: <a href="https://support.microsoft.com/en-us/windows/security/encryption/bitlocker-overview" rel="noopener noreferrer" target="_blank">Microsoft — BitLocker overview</a> and <a href="https://support.microsoft.com/en-us/windows/security/encryption/device-encryption-in-windows" rel="noopener noreferrer" target="_blank">Device Encryption in Windows</a>.</p>
 </div></section>
-<section class="saas-band" id="separate-password"><div class="container-wide"><div class="saas-grid"><div class="saas-content">
-<span class="section-badge">Native limitation</span><h2>Can Windows 10 put a separate password on one folder without software?</h2>
-<p>If you want a password that is independent of your Windows login, Windows 10’s normal folder UI does not provide that directly. Use a reputable encrypted archive/container or dedicated vault that encrypts the data and requires its own password.</p>
-<div class="saas-chips"><span class="saas-chip">Separate password</span><span class="saas-chip">Cryptographic protection</span><span class="saas-chip">Portable options</span><span class="saas-chip">Best for shared logins</span></div>
-<p>Choose tools with documented encryption, recovery behavior, and backup guidance. Test with non-critical files before moving the only copy of important data into any encrypted container.</p>
-</div><div class="saas-mockup"><h3>Separate-password model</h3><img alt="Example folder security software interface for protecting selected folders" class="mockup-image" decoding="async" loading="lazy" src="https://i.ibb.co/czvrxyF/folder-lock-10-protect-folders-screen.png"/><p>Example interface only. The security decision should be based on the tool’s documented encryption and recovery design, not on whether a folder is merely hidden.</p></div></div></div></section>
+<section class="saas-band" id="separate-password"><div class="container-wide">
+<div class="folderlock-recommendation">
+<div class="folderlock-copy">
+<div class="folderlock-product-card">
+<span class="folderlock-kicker">Recommended when built-in Windows tools are not enough</span>
+<h2 style="margin-top:14px;">Need a separate password and broader file protection? Consider Folder Lock</h2>
+<p>Windows 10 does not provide a normal per-folder password prompt. If you need a separate protected workspace, <strong>Folder Lock by NewSoftwares</strong> adds dedicated folder protection, encrypted lockers, file shredding, secrets, syncing and other privacy controls beyond Windows permissions alone.</p>
+<ul class="folderlock-feature-list">
+<li>Protect folders with a dedicated security workflow</li>
+<li>AES 256-bit encrypted lockers for sensitive files</li>
+<li>Free plan supports 1 GB and 2 devices</li>
+<li>Pro expands storage and device support</li>
+</ul>
+<div class="folderlock-pricing">
+<div class="folderlock-plan"><strong>Folder Lock Free</strong><span class="folderlock-price">$0</span><small>1 GB locker size, 2 devices and core free features.</small></div>
+<div class="folderlock-plan"><strong>Folder Lock 10 Pro</strong><span class="folderlock-price">$39.95/year</span><small>Unlimited locker size, up to 5 devices and Pro safeguards.</small></div>
+</div>
+<div class="folderlock-actions">
+<a class="fl-primary" href="https://www.newsoftwares.net/folderlock/" rel="noopener noreferrer" target="_blank">Explore Folder Lock</a>
+<a class="fl-secondary" href="https://store.newsoftwares.net/" rel="noopener noreferrer" target="_blank">View Pro Pricing</a>
+<a class="fl-secondary" href="https://www.newsoftwares.net/folderlock/howto/protect-files-folders-drives/" rel="noopener noreferrer" target="_blank">Protection Guide</a>
+</div>
+<p class="folderlock-price-note">Pricing shown from NewSoftwares' current product/store information and may change. Verify the checkout price before purchase.</p>
+</div>
+</div>
+<div class="folderlock-visual"><figure class="safe-media folderlock-screen-wrap"><span class="media-fallback">Folder Lock 10 official desktop interface</span><img alt="Folder Lock 10 official desktop interface" decoding="async" loading="lazy" onerror="this.remove()" src="https://www.newsoftwares.net/wp-content/uploads/2025/12/snap_folder_lock_screen-1.png"/><figcaption>Folder Lock 10 desktop interface from NewSoftwares.</figcaption></figure></div>
+</div></div></section>
 <section class="section-wrap bg-tint" id="avoid"><div class="container-reading">
 <span class="section-badge">Avoid false security</span><h2>Hidden folders and batch scripts are not encryption</h2>
 <p>Folder-hiding tricks, renamed “Control Panel” folders, and common CMD/batch-file scripts can deter casual browsing, but the files are still present and the script may expose its password in plain text. Do not use those methods for tax records, identity documents, work secrets, or anything that would matter if copied.</p>
-<div class="image-shell"><img alt="Shared computer privacy concerns illustrating the limits of hidden folders" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/4gpZMk4r/Shared-Computer-Privacy-Concerns.png"/></div>
+<div class="image-shell"></div>
 <p>If you specifically want to understand that low-security technique, keep it separate from this general Windows 10 guide: <a href="https://how-to-lock-a-folder-using-cmd-in-windows-batch-file-method.vercel.app/" rel="noopener noreferrer">CMD batch-file folder locking</a>.</p>
 </div></section>
 <section class="section-wrap" id="compare"><div class="container-wide">
@@ -1130,7 +1294,7 @@ footer {
 <article class="masonry-card"><h4>Test recovery</h4><p>Before moving all important files, encrypt a test folder, sign out/restart as appropriate, and verify both normal access and the recovery process.</p></article>
 <article class="masonry-card"><h4>Do not uninstall blindly</h4><p>If third-party encryption is used, follow the vendor’s documented unlock/export procedure before uninstalling or resetting Windows.</p></article>
 </div>
-<div class="image-shell"><img alt="Data protection vault illustrating encrypted folder backup and recovery planning" class="inline-image" decoding="async" loading="lazy" src="https://i.ibb.co/bMzYGK6K/Data-Protection-Vault.jpg"/></div>
+<div class="image-shell"></div>
 </div></section>
 <section class="section-wrap" id="faq"><div class="container-reading">
 <span class="section-badge">FAQ</span><h2>Frequently asked questions about locking folders in Windows 10</h2>
@@ -1150,6 +1314,7 @@ footer {
 <div><a class="footer-brand" href="/"><span style="font-family:var(--font-heading);font-weight:700;color:#fff;">Windows Folder Security</span></a><p>Independent practical guidance for choosing the right Windows folder-protection method.</p></div>
 <div><h4>Guide</h4><p><a href="#overview">Overview</a><br/><a href="#methods">Methods</a><br/><a href="#faq">FAQ</a></p></div>
 <div><h4>Primary references</h4><p><a href="https://support.microsoft.com/en-us/windows/security/encryption/how-to-encrypt-a-file-or-folder" rel="noopener noreferrer" target="_blank">Microsoft EFS guidance</a><br/><a href="https://support.microsoft.com/en-us/windows/security/encryption/bitlocker-overview" rel="noopener noreferrer" target="_blank">Microsoft BitLocker guidance</a></p></div>
+<div><h4>Related security tools</h4><p><a href="https://www.newsoftwares.net/folderlock/" rel="noopener noreferrer" target="_blank">Folder Lock by NewSoftwares</a><br/><a href="https://www.newsoftwares.net/" rel="noopener noreferrer" target="_blank">NewSoftwares.net</a></p></div>
 </div><div class="footer-legal">Updated October 2026. Windows and Microsoft are trademarks of their respective owners. This page is an independent educational resource.</div></div></footer>
 <script>
 
